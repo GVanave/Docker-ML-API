@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask App</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background */
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 300px; /* Set the maximum height as needed */
+            display: block;
+            margin: 20px auto; /* Center the image */
+        }
+
+        h1, h2, h3 {
+            color: #333; /* Dark gray text */
+        }
+
+        #mlModelsInfo, #dlModelsInfo {
+            display: none;
+            background-color: #fff; /* White background for models info */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift effect */
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4caf50; /* Green button color */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ML Models Info Button -->
+    <button onclick="showMLModelsInfo()">Show ML Models Info</button>
+
+    <!-- Deep Learning Models Info Button -->
+    <button onclick="showDLModelsInfo()">Show Deep Learning Models Info</button>
+
+    <img src="{{ url_for('static', filename='ML_image.jpg') }}" alt="Your Image">
+    <!-- Your Resized Image 2 -->
+    <img src="{{ url_for('static', filename='Docker _image.jpg') }}" alt="Your Image 2">
+
+    <h1>Welcome to the Flask App</h1>
+    {{ project_purpose|safe }}
+
+    <!-- Container for ML Models Info (Initially Hidden) -->
+    <div id="mlModelsInfo">
+        <h2>Machine Learning Models Information</h2>
+        <h3>1. Linear Regression</h3>
+        <p>Linear regression is a linear approach to modeling the relationship between a dependent variable and one or more independent variables.</p>
+
+        <h3>2. Random Forest</h3>
+        <p>Random Forest is an ensemble learning method for classification, regression, and other tasks that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees.</p>
+
+        <h3>3. Support Vector Machines (SVM)</h3>
+        <p>Support Vector Machines are a type of supervised learning algorithm that analyzes data for classification and regression analysis.</p>
+    </div>
+
+    <!-- Container for Deep Learning Models Info (Initially Hidden) -->
+    <div id="dlModelsInfo">
+        <h2>Deep Learning Models Information</h2>
+        <h3>1. Convolutional Neural Network (CNN)</h3>
+        <p>CNNs are deep learning models commonly used for image classification tasks. They consist of convolutional layers that learn hierarchical representations of input images.</p>
+
+        <h3>2. Recurrent Neural Network (RNN)</h3>
+        <p>RNNs are used for sequential data tasks. They have loops to allow information persistence over time, making them suitable for tasks like natural language processing.</p>
+
+        <h3>3. Long Short-Term Memory (LSTM)</h3>
+        <p>LSTMs are a type of RNN designed to overcome the vanishing gradient problem. They are effective for learning long-term dependencies in sequential data.</p>
+    </div>
+
+    <script>
+        function showMLModelsInfo() {
+            // Toggle the visibility of the ML Models Info container
+            var mlModelsInfo = document.getElementById('mlModelsInfo');
+            mlModelsInfo.style.display = (mlModelsInfo.style.display === 'none' || mlModelsInfo.style.display === '') ? 'block' : 'none';
+
+            // Hide the Deep Learning Models Info container
+            document.getElementById('dlModelsInfo').style.display = 'none';
+        }
+
+        function showDLModelsInfo() {
+            // Toggle the visibility of the Deep Learning Models Info container
+            var dlModelsInfo = document.getElementById('dlModelsInfo');
+            dlModelsInfo.style.display = (dlModelsInfo.style.display === 'none' || dlModelsInfo.style.display === '') ? 'block' : 'none';
+
+            // Hide the Machine Learning Models Info container
+            document.getElementById('mlModelsInfo').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

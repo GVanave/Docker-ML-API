@@ -16,25 +16,25 @@ This project demonstrates how to containerize a Flask application with a machine
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/flask-docker-ml-api.git
+    git clone https://github.com/GVanave/Docker-ML-API.git
     ```
 
 2. **Change into the project directory:**
 
     ```bash
-    cd flask-docker-ml-api
+    cd Docker-ML-API
     ```
 
 3. **Build the Docker image:**
 
     ```bash
-    docker build -t flask-docker-ml-api .
+    docker build -t Docker-ML-API .
     ```
 
 4. **Run the Docker container:**
 
     ```bash
-    docker run -p 5000:5000 flask-docker-ml-api
+    docker run -p 5000:5000 Docker-ML-API
     ```
 
 5. **Access the API at [http://localhost:5000](http://localhost:5000)**
